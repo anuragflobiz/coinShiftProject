@@ -22,7 +22,6 @@ import java.util.UUID;
         }
 )
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
@@ -32,15 +31,19 @@ public class User {
     private UUID id;
 
     @Column(nullable = false)
+    @Setter
     private String name;
 
     @Column(nullable = false, unique = true)
+    @Setter
     private String email;
 
     @Column(nullable = false, unique = true)
+    @Setter
     private String mobile;
 
     @Column(nullable = false)
+    @Setter
     private String password; //store in hashed form
 
     @CreationTimestamp

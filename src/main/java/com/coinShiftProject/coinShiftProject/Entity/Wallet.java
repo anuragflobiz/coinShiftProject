@@ -23,7 +23,6 @@ import java.util.UUID;
         }
 )
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Wallet {
@@ -33,10 +32,11 @@ public class Wallet {
     private UUID id;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, updatable = false,unique = true)
+    @Column(nullable = false, updatable = false)
     private CurrencyCode currencyCode;
 
     @Column(nullable = false, precision = 19, scale = 4)
+    @Setter
     private BigDecimal balance = BigDecimal.ZERO;
 
     @CreationTimestamp
