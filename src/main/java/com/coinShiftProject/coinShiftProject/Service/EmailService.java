@@ -1,4 +1,4 @@
-package com.coinShiftProject.coinShiftProject.Security;
+package com.coinShiftProject.coinShiftProject.Service;
 
 
 import org.springframework.stereotype.Service;

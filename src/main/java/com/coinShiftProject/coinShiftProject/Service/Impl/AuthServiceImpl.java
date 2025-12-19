@@ -1,12 +1,12 @@
-package com.coinShiftProject.coinShiftProject.Security.Impl;
+package com.coinShiftProject.coinShiftProject.Service.Impl;
 
 import com.coinShiftProject.coinShiftProject.DTO.LoginResponse;
 import com.coinShiftProject.coinShiftProject.DTO.createUserDTO;
 import com.coinShiftProject.coinShiftProject.Entity.User;
 import com.coinShiftProject.coinShiftProject.Repository.UserRepository;
-import com.coinShiftProject.coinShiftProject.Security.AuthService;
-import com.coinShiftProject.coinShiftProject.Security.EmailService;
-import com.coinShiftProject.coinShiftProject.Service.JwtUtil;
+import com.coinShiftProject.coinShiftProject.Service.AuthService;
+import com.coinShiftProject.coinShiftProject.Service.EmailService;
+import com.coinShiftProject.coinShiftProject.Security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;

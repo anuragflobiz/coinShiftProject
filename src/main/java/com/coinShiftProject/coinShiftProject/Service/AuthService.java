@@ -1,4 +1,4 @@
-package com.coinShiftProject.coinShiftProject.Security;
+package com.coinShiftProject.coinShiftProject.Service;
 
 import com.coinShiftProject.coinShiftProject.DTO.LoginResponse;
 import com.coinShiftProject.coinShiftProject.DTO.createUserDTO;

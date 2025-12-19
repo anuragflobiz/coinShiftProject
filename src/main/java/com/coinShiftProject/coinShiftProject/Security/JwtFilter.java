@@ -1,4 +1,4 @@
-package com.coinShiftProject.coinShiftProject.Service;
+package com.coinShiftProject.coinShiftProject.Security;
 
 
 import io.jsonwebtoken.Claims;

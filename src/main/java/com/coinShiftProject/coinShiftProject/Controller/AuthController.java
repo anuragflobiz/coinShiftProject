@@ -3,7 +3,7 @@ package com.coinShiftProject.coinShiftProject.Controller;
 import com.coinShiftProject.coinShiftProject.DTO.LoginReq;
 import com.coinShiftProject.coinShiftProject.DTO.LoginResponse;
 import com.coinShiftProject.coinShiftProject.DTO.createUserDTO;
-import com.coinShiftProject.coinShiftProject.Security.AuthService;
+import com.coinShiftProject.coinShiftProject.Service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

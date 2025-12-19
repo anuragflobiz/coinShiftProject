@@ -1,7 +1,7 @@
 package com.coinShiftProject.coinShiftProject.Configuration;
 
 
-import com.coinShiftProject.coinShiftProject.Service.JwtFilter;
+import com.coinShiftProject.coinShiftProject.Security.JwtFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

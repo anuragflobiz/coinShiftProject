@@ -1,6 +1,6 @@
-package com.coinShiftProject.coinShiftProject.Security.Impl;
+package com.coinShiftProject.coinShiftProject.Service.Impl;
 
-import com.coinShiftProject.coinShiftProject.Security.EmailService;
+import com.coinShiftProject.coinShiftProject.Service.EmailService;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
