@@ -19,7 +19,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "wallets",
         uniqueConstraints = {
-                @UniqueConstraint(columnNames = {"user_id","currencyCode"})
+                @UniqueConstraint(columnNames = {"user_id","currency_code"})
         }
 )
 @Getter
@@ -33,6 +33,7 @@ public class Wallet {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, updatable = false)
+    @Setter
     private CurrencyCode currencyCode;
 
     @Column(nullable = false, precision = 19, scale = 4)
@@ -49,6 +50,7 @@ public class Wallet {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id")
+    @Setter
     private User user;
 
     @OneToMany(mappedBy = "senderWallet")
@@ -56,6 +58,4 @@ public class Wallet {
 
     @OneToMany(mappedBy = "receiverWallet")
     private List<Transaction> receiverTransaction=new ArrayList<>();
-
-
 }

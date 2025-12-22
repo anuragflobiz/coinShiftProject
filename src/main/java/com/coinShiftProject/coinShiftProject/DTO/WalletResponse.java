@@ -1,0 +1,18 @@
+package com.coinShiftProject.coinShiftProject.DTO;
+
+import com.coinShiftProject.coinShiftProject.enums.CurrencyCode;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+import java.util.UUID;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class WalletResponse {
+    private UUID id;
+    private CurrencyCode currencyCode;
+    private BigDecimal balance;
+}

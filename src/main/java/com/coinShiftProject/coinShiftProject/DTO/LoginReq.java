@@ -11,7 +11,5 @@ import lombok.*;
 public class LoginReq {
     private String email;
     private String password;
-
-
 }
 

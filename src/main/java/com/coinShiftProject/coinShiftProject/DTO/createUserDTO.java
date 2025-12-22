@@ -2,7 +2,6 @@ package com.coinShiftProject.coinShiftProject.DTO;
 
 
 import lombok.*;
-import org.springframework.stereotype.Service;
 
 @Data
 @AllArgsConstructor
