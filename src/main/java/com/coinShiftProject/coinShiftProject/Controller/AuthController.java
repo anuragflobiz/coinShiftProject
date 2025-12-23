@@ -30,7 +30,7 @@ public class AuthController {
         return authService.login(req.getEmail(),req.getPassword());
     }
 
-    @PostMapping("/change-password")
+    @PutMapping("/change-password")
     public ResponseEntity<String> changePassword(@RequestBody ChangePasswordDTO req, Authentication authentication) {
         if (!authentication.getName().equals(req.getEmail())) {
             return ResponseEntity.status(403).body("Unauthorized access");
@@ -39,7 +39,7 @@ public class AuthController {
         return ResponseEntity.ok(authService.changePassword(req));
     }
 
-    @PostMapping("/forgot-password")
+    @PutMapping("/forgot-password")
     public ResponseEntity<String> forgotPassword(@RequestBody ForgotPasswordDTO req) {
         return ResponseEntity.ok(authService.forgotPassword(req));
     }

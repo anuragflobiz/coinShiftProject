@@ -1,6 +1,5 @@
 package com.coinShiftProject.coinShiftProject.Controller;
 
-import com.coinShiftProject.coinShiftProject.DTO.ChangePasswordDTO;
 import com.coinShiftProject.coinShiftProject.DTO.WalletResponse;
 import com.coinShiftProject.coinShiftProject.Service.AuthService;
 import com.coinShiftProject.coinShiftProject.Service.WalletService;
@@ -28,16 +27,14 @@ public class WalletController {
         return ResponseEntity.ok(walletService.create(currency,authentication));
     }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteWallet(@PathVariable UUID id, Authentication authentication){
         return ResponseEntity.ok(walletService.deleteWallet(id,authentication));
     }
 
-    @GetMapping("/showWallets/{userID}")
-    public ResponseEntity<List<WalletResponse>> getAllWallet(@PathVariable UUID userID, Authentication authentication){
-        return ResponseEntity.ok(walletService.showWallets(userID,authentication));
+    @GetMapping({"/showWallets", "/showWallets/{currency}"})
+    public ResponseEntity<List<WalletResponse>> getAllWallet(@PathVariable(required = false) CurrencyCode currency, Authentication authentication){
+        return ResponseEntity.ok(walletService.showWallets(currency,authentication));
     }
-
-
 
 }

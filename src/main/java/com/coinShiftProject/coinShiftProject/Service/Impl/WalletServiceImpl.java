@@ -9,6 +9,7 @@ import com.coinShiftProject.coinShiftProject.Repository.WalletRepository;
 import com.coinShiftProject.coinShiftProject.Service.WalletService;
 import com.coinShiftProject.coinShiftProject.enums.CurrencyCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,9 @@ public class WalletServiceImpl implements WalletService {
 
     @Autowired
     private WalletRepository walletRepository;
+
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
 
     @Override
     public String create(CurrencyCode currencyCode, Authentication authentication) {
@@ -61,16 +65,23 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    public List<WalletResponse> showWallets(UUID user_id, Authentication authentication) {
-        String email=authentication.getName();
-        User loggedUser= (User) userRepository.findByEmail(email).orElseThrow(()-> new RuntimeException("User not found"));
-        if(!loggedUser.getId().equals(user_id)){
-            throw new RuntimeException("User Unauthenticated");
+    public List<WalletResponse> showWallets(CurrencyCode currencyCode, Authentication authentication) {
+        String email = authentication.getName();
+        User loggedUser = (User) userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        if (currencyCode != null) {
+            Wallet wallet = walletRepository
+                    .findByUserIdAndCurrencyCode(loggedUser.getId(), currencyCode)
+                    .orElseThrow(() -> new RuntimeException("Wallet not found"));
+
+            return List.of(
+                    new WalletResponse(wallet.getId(), wallet.getCurrencyCode(), wallet.getBalance())
+            );
         }
-        return walletRepository.findAllByUserId(user_id).stream().map(m->new WalletResponse(m.getId(),m.getCurrencyCode(),m.getBalance())).toList();
+
+        return walletRepository.findAllByUserId(loggedUser.getId()).stream()
+                .map(w -> new WalletResponse(w.getId(), w.getCurrencyCode(), w.getBalance()))
+                .toList();
     }
-
-
-
-
 }

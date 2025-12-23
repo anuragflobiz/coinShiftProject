@@ -12,6 +12,6 @@ public interface WalletService {
 
     public String deleteWallet(UUID wallet_id, Authentication authentication);
 
-    public List<WalletResponse> showWallets(UUID user_id, Authentication authentication);
+    public List<WalletResponse> showWallets(CurrencyCode currencyCode, Authentication authentication);
 
 }

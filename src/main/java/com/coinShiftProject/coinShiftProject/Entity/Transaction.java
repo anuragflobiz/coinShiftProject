@@ -2,6 +2,7 @@ package com.coinShiftProject.coinShiftProject.Entity;
 
 
 import com.coinShiftProject.coinShiftProject.enums.PaymentStatus;
+import com.coinShiftProject.coinShiftProject.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -15,6 +16,7 @@ import java.util.UUID;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Transaction {
 
     @Id
@@ -62,4 +64,8 @@ public class Transaction {
     @ManyToOne(optional = false)
     @JoinColumn(name = "receiver_user_id",updatable = false)
     private User receiverUser;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private TransactionType transactionType;
 }
